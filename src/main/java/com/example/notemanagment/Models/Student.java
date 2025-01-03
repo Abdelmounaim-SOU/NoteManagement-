@@ -15,5 +15,8 @@ public class Student {
     @Column(nullable = false)
     private String surname;
 
+    @Column(nullable = true)
+    private int note;
+
     // Getters and setters
 }

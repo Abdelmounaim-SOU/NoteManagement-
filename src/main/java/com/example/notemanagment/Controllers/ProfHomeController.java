@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/Dashboard/prof/prof")
+@RequestMapping("/Dashboard/prof")
 public class ProfHomeController {
 
     @Autowired
@@ -27,7 +27,7 @@ public class ProfHomeController {
     @Autowired
     private ProfRepo profRepo;
 
-    @GetMapping
+    @GetMapping("prof")
     public String showProfDashboard(Model model) {
         Integer userId = (Integer) session.getAttribute("userId");
 
@@ -60,5 +60,11 @@ public class ProfHomeController {
         model.addAttribute("elements", moduleElements);
 
         return "Dashboard/prof/prof";
+    }
+
+    // get to edit the notes of your class:
+    @GetMapping("/editerNotes")
+    public String editerNotes() {
+        return "Dashboard/prof/editerNotes"; // Name of the HTML view file (without .html extension)
     }
 }
